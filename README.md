@@ -2,7 +2,7 @@
 
 > **Smart Python traceback explainer — understand your errors instantly.**
 
-[![CI](https://github.com/yourusername/fixpy/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/fixpy/actions)
+[![CI](https://github.com/yousseeff20/fixpy/actions/workflows/ci.yml/badge.svg)](https://github.com/yousseeff20/fixpy/actions)
 [![PyPI version](https://badge.fury.io/py/fixpy.svg)](https://pypi.org/project/fixpy/)
 [![Python](https://img.shields.io/pypi/pyversions/fixpy)](https://pypi.org/project/fixpy/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -29,7 +29,7 @@ pip install fixpy
 Or for development:
 
 ```bash
-git clone https://github.com/yourusername/fixpy
+git clone https://github.com/yousseeff20/fixpy
 cd fixpy
 pip install -e ".[dev]"
 ```

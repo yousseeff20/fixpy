@@ -5,7 +5,7 @@ Thank you for considering contributing! Here's how to get started.
 ## Development Setup
 
 ```bash
-git clone https://github.com/yourusername/fixpy
+git clone https://github.com/yousseeff20/fixpy
 cd fixpy
 python -m venv venv
 # Windows:

@@ -47,10 +47,10 @@ dev = [
 fixpy = "fixpy.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/fixpy"
-Documentation = "https://github.com/yourusername/fixpy#readme"
-Repository = "https://github.com/yourusername/fixpy"
-Issues = "https://github.com/yourusername/fixpy/issues"
+Homepage = "https://github.com/yousseeff20/fixpy"
+Documentation = "https://github.com/yousseeff20/fixpy#readme"
+Repository = "https://github.com/yousseeff20/fixpy"
+Issues = "https://github.com/yousseeff20/fixpy/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/fixpy"]
