@@ -3,8 +3,8 @@
 > **Smart Python traceback explainer — understand your errors instantly.**
 
 [![CI](https://github.com/yousseeff20/fixpy/actions/workflows/ci.yml/badge.svg)](https://github.com/yousseeff20/fixpy/actions)
-[![PyPI version](https://badge.fury.io/py/fixpy.svg)](https://pypi.org/project/fixpy/)
-[![Python](https://img.shields.io/pypi/pyversions/fixpy)](https://pypi.org/project/fixpy/)
+[![PyPI version](https://badge.fury.io/py/fixpy-traceback.svg)](https://pypi.org/project/fixpy-traceback/)
+[![Python](https://img.shields.io/pypi/pyversions/fixpy-traceback)](https://pypi.org/project/fixpy-traceback/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 fixpy analyses Python tracebacks and explains them in **plain, beginner-friendly English** (and Arabic!) with:
@@ -23,7 +23,7 @@ fixpy analyses Python tracebacks and explains them in **plain, beginner-friendly
 ## Installation
 
 ```bash
-pip install fixpy
+pip install fixpy-traceback
 ```
 
 Or for development:

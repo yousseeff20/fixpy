@@ -3,7 +3,7 @@ requires = ["hatchling>=1.21.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "fixpy"
+name = "fixpy-traceback"
 version = "0.1.0"
 description = "Smart Python traceback explainer — understand your errors instantly"
 readme = "README.md"
