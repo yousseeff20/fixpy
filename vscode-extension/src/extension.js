@@ -2,7 +2,6 @@ const vscode = require("vscode");
 const { execFile } = require("child_process");
 
 const TRACEBACK_HEADER = /Traceback \(most recent call last\):/;
-const FRAME_PATTERN = /^\s+File "(.+)", line (\d+)(?:, in (.+))?$/gm;
 const EXCEPTION_PATTERN = /^([A-Za-z_]\w*(?:\.[A-Za-z_]\w*)*(?:Error|Exception|Warning|Exit|Iteration)): (.+)$/m;
 
 function activate(context) {
@@ -94,7 +93,7 @@ function activate(context) {
       return;
     }
 
-    diagnostics.set(doc.uri, extractTracebackDiagnostics(text, doc));
+    diagnostics.set(doc.uri, extractTracebackDiagnostics(text));
   };
 
   if (vscode.window.activeTextEditor) {
@@ -126,7 +125,7 @@ function looksLikeTraceback(text) {
   return TRACEBACK_HEADER.test(text) && EXCEPTION_PATTERN.test(text);
 }
 
-function extractTracebackDiagnostics(text, doc) {
+function extractTracebackDiagnostics(text) {
   const lines = text.split(/\r?\n/);
   const exceptionMatch = EXCEPTION_PATTERN.exec(text);
   const exceptionText = exceptionMatch
@@ -142,7 +141,7 @@ function extractTracebackDiagnostics(text, doc) {
     const range = new vscode.Range(i, 0, i, line.length);
     const diag = new vscode.Diagnostic(
       range,
-      `${exceptionText} (frame)` ,
+      `${exceptionText} (frame)`,
       vscode.DiagnosticSeverity.Error
     );
     diag.source = "fixpy";
@@ -157,8 +156,10 @@ function runFixpy(inputText) {
     const config = vscode.workspace.getConfiguration("fixpy");
     const command = config.get("command", "fixpy");
     const lang = config.get("language", "en");
+    const maxBufferMB = Number(config.get("maxBufferMB", 5));
+    const maxBuffer = Math.max(1, maxBufferMB) * 1024 * 1024;
 
-    const child = execFile(command, ["--json", "--lang", lang], { maxBuffer: 1024 * 1024 }, (error, stdout, stderr) => {
+    const child = execFile(command, ["--json", "--lang", lang], { maxBuffer }, (error, stdout, stderr) => {
       if (error) {
         const details = stderr?.trim() || error.message;
         resolve({

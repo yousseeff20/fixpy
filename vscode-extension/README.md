@@ -28,6 +28,7 @@ pip install fixpy-traceback
 - `fixpy.command` (default: `fixpy`)
 - `fixpy.language` (`en` or `ar`)
 - `fixpy.autoDetectTracebacks` (default: `true`)
+- `fixpy.maxBufferMB` (default: `5`)
 
 ## Local development
 
