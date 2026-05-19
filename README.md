@@ -16,6 +16,7 @@ fixpy analyses Python tracebacks and explains them in **plain, beginner-friendly
 - 👁 **Watch mode** — re-analyse on every file save
 - 📋 **Clipboard support** — paste tracebacks directly
 - 🔧 **JSON output** — for CI/CD integration
+- 🧩 **VS Code extension support (preview)** — analyze tracebacks inside the editor
 - 🐍 **Python 3.9–3.13** compatible
 
 ---
@@ -155,6 +156,31 @@ Options:
   -v, --version       Show version and exit.
   --help              Show this message and exit.
 ```
+
+---
+
+## VS Code Extension (Preview)
+
+`fixpy` now includes preview support for a VS Code extension in
+[`vscode-extension/`](vscode-extension/).
+
+### What it provides
+
+- Traceback detection in open text/log files
+- Commands to analyze selected traceback text or the full current file
+- Beginner-friendly explanations and fix guidance shown in VS Code
+- Inline diagnostics on traceback frame lines
+
+### Quick start
+
+```bash
+pip install fixpy-traceback
+cd vscode-extension
+npm install
+```
+
+Then open this repository in VS Code and press `F5` to launch an Extension
+Development Host.
 
 ---
 

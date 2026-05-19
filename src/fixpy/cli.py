@@ -69,6 +69,7 @@ def _run_pipeline(text: str, lang: str, as_json: bool) -> bool:
     analysis = analyze(parsed)
 
     if as_json:
+        frame = parsed.frames[-1] if parsed.frames else None
         data = {
             "exception_type": analysis.exception_type,
             "cause": analysis.cause,
@@ -80,6 +81,16 @@ def _run_pipeline(text: str, lang: str, as_json: bool) -> bool:
             "is_beginner_mistake": analysis.is_beginner_mistake,
             "nearby_names": analysis.nearby_names,
             "smart_suggestions": analysis.smart_suggestions,
+            "location": (
+                {
+                    "file": frame.file,
+                    "line": frame.line_number,
+                    "function": frame.function_name,
+                    "source_snippet": frame.source_snippet,
+                }
+                if frame
+                else None
+            ),
         }
         typer.echo(json.dumps(data, ensure_ascii=False, indent=2))
     else:
