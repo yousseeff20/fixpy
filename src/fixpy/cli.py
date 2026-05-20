@@ -16,6 +16,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from typing import Optional
 
 # ── Force UTF-8 output on all platforms (fixes Windows cp1252 issues) ─────────
 if hasattr(sys.stdout, "reconfigure"):
@@ -122,7 +123,7 @@ def _read_file_or_run(source: Path) -> str:
 
 @app.command()
 def main(
-    source: Path | None = typer.Argument(
+    source: Optional[Path] = typer.Argument(  # noqa: UP045
         None,
         help="Path to a .py script or .log/.txt traceback file.",
         exists=False,  # We validate manually for better messages
@@ -143,7 +144,7 @@ def main(
         False, "--json",
         help="Output analysis as machine-readable JSON.",
     ),
-    version: bool | None = typer.Option(
+    version: Optional[bool] = typer.Option(  # noqa: UP045
         None, "--version", "-v",
         callback=_version_callback,
         is_eager=True,
