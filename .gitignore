@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# VS Code extension artifacts
+vscode-extension/node_modules/
+vscode-extension/*.vsix

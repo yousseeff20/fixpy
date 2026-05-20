@@ -1,0 +1,71 @@
+{
+  "name": "fixpy-vscode",
+  "displayName": "fixpy Traceback Helper",
+  "description": "Beginner-friendly Python traceback explanations powered by fixpy.",
+  "version": "0.0.1",
+  "publisher": "fixpy",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onCommand:fixpy.analyzeSelection",
+    "onCommand:fixpy.analyzeDocument",
+    "onLanguage:python",
+    "workspaceContains:**/*.log",
+    "workspaceContains:**/*.txt"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fixpy.analyzeSelection",
+        "title": "fixpy: Analyze Selected Traceback"
+      },
+      {
+        "command": "fixpy.analyzeDocument",
+        "title": "fixpy: Analyze Traceback in Current File"
+      },
+      {
+        "command": "fixpy.copyTopFix",
+        "title": "fixpy: Copy Top Fix Suggestion"
+      }
+    ],
+    "configuration": {
+      "title": "fixpy",
+      "properties": {
+        "fixpy.command": {
+          "type": "string",
+          "default": "fixpy",
+          "description": "Command used to run fixpy."
+        },
+        "fixpy.language": {
+          "type": "string",
+          "enum": ["en", "ar"],
+          "default": "en",
+          "description": "Language used for fixpy explanations."
+        },
+        "fixpy.autoDetectTracebacks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Detect traceback blocks in text files and add inline diagnostics."
+        },
+        "fixpy.maxBufferMB": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "description": "Maximum stdout/stderr buffer size in MB used when running fixpy."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0"
+  }
+}
